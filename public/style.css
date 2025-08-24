@@ -7,7 +7,6 @@
     display: flex;
     align-items: start;
     flex-direction: column;
-    border: 1px solid black;
     padding: 60px 80px;
     gap: 20px;
 }
@@ -21,11 +20,14 @@
     height: 40px;
     border-radius: 35px;
 }
+#response__container{
+    display: none;
+}
 .response{
     display: flex;
     flex-direction: column;
+    transition: 0.5s;
     gap: 20px;
-    /* opacity: 0; */
 }
 .response__amount{
     display: flex;
@@ -37,6 +39,7 @@
 .response__desc textarea{
     padding-left: 10px;
     padding-top: 10px;
+    padding-right: 10px;
     width: 300px;
     height: 300px;
 }
