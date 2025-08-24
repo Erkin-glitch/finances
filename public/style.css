@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.btn{
+    display: flex;
+    padding: 60px 80px;
+}
+.btn button{
+    background-color: rgb(88, 227, 88);
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 35px;
+}
