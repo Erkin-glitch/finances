@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <form class="container" action="/form" method="post">
          <div class="btn">
         <button type="button" onclick=OnTap()>Add</button>
     </div>
     <div id="response__container">
          <div class="response" id="response">
         <div class="response__amount">
-            <textarea name="" id="" placeholder="leave price"></textarea>
+            <textarea name="amount" id="" required placeholder="leave price"></textarea>
         </div>
         <div class="response__desc">
-            <textarea name="" id="" placeholder="describe"></textarea>
+            <textarea name="description" id="" required placeholder="describe"></textarea>
         </div>
         <div class="response__profit">
-            <input type="checkbox" id="check">
+            <input type="checkbox" name="isProfit" id="check" >
             <p>Is it profit?</p>
         </div>
         <div class="response__btn">
@@ -28,7 +28,7 @@
             <button type="reset">Reset</button>
         </div>
     </div>
-    </div>
+</form>
    
     <script src="/js/button.js"></script>
 </body>

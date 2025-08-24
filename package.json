@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cli": "^1.0.1",
     "config": "^4.1.1",
     "dotenv": "^17.2.1",
     "ejs": "^3.1.10",

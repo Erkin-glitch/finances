@@ -1,13 +1,17 @@
 const express = require("express")
-const port = 3000;
-let app = express()
+const indexRouter = require("./router/index.js")
+require('dotenv').config()
+const port = 3000
+var app = express()
+const path = require("path")
 
+app.set("views", "views")
 app.set("view engine", "ejs")
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"))
-app.get("/", (req, res) =>{
-    res.render("index")
-})
 
+app.use("/", indexRouter)
 
 app.listen(port,()=> {
     console.log("Server is running in this port "+ port);
