@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     tableName: "users",
-    timestamps: false,       // отключаем автоматические createdAt и updatedAt
-    createdAt: true,
+    timestamps: false,       
+    createdAt: true
   });
   return User;
 };

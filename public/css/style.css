@@ -54,21 +54,27 @@ body{
 .transactions{
     display: flex;
     flex-direction: column;
+    background-color: white;
     width: 70%;
+    border-radius: 25px;
+    gap: 20px;
+}
+.transactions h1{
+    color: #666666;
+    padding: 12px;
 }
 table{
     border: none;
-    width: 70%;
+    width: 100%;
+    padding: 12px;
 }
 th{
     text-align: start;
-    border: none;
-
+    border: none;   
 }
 tr{
     border: none;
-      border-bottom: 1px solid black;
-
+    border-bottom: 1px solid black;
 }
 td{
     border: none;

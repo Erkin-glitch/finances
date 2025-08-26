@@ -4,7 +4,8 @@
   <title>Users</title>
 </head>
 <body>
-  <h1>Recent Transactions</h1>
+    <div class="transactions">
+          <h1>Recent Transactions</h1>
   
 
 
@@ -27,12 +28,19 @@
             <td><%= user.title %></td>
             <td><%= user.amount %></td>
             <td><%= user.type %></td>
-            <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
+            <td>
+            <% if (user.createdAt) { %>
+              <%= new Date(user.createdAt).toLocaleDateString("ru-RU") %>
+            <% } else { %>
+              Нет даты
+            <% } %>
+            </td>
+
              <td>
           <form action="/edit/<%= user.id %>"  style="display:inline;">
             <button type="submit">Edit</button>
           </form>
-          <form action="/delete/<%= user.id %>"  style="display:inline;" onsubmit="return confirm('Are you sure?');">
+          <form action="/form" method="post" style="display: inline-block;" onsubmit="return confirm('Are you sure?');">
             <button type="submit">Delete</button>
           </form>
         </td>
@@ -41,5 +49,7 @@
       </tbody>
     </table>
   <% } %>
+    </div>
+
 </body>
 </html>
