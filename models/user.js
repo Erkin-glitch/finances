@@ -14,12 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    amount: DataTypes.STRING,
-    description: DataTypes.STRING
+    title: DataTypes.STRING,
+    amount: DataTypes.DECIMAL,
+    type: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
-    tableName: "users"
+    tableName: "users",
+    timestamps: false,       // отключаем автоматические createdAt и updatedAt
+    createdAt: true,
   });
   return User;
 };

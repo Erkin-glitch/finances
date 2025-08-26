@@ -4,19 +4,20 @@ module.exports = async (req, res) => {
     console.log (req.body)
     try{
      let {
+        title,
         amount,
-        description,
-        isProfit
+        type
      }  = req.body
 
-        if (!amount || !description ) {
+        if (!title || !amount || !type ) {
             res.status(400).send()
             return
         }
 
         let data = await User.create({
+            title,
             amount,
-            description
+            type
         })
         return res.send("succesful")
     } catch (error){

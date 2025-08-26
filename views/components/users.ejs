@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Users</title>
+</head>
+<body>
+  <h1>Recent Transactions</h1>
+  
+
+
+  <% if (users.length === 0) { %>
+    <p>No users found.</p>
+  <% } else { %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.title %></td>
+            <td><%= user.amount %></td>
+            <td><%= user.type %></td>
+            <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
+             <td>
+          <form action="/edit/<%= user.id %>"  style="display:inline;">
+            <button type="submit">Edit</button>
+          </form>
+          <form action="/delete/<%= user.id %>"  style="display:inline;" onsubmit="return confirm('Are you sure?');">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+</html>
