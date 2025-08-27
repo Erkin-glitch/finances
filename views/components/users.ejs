@@ -30,7 +30,7 @@
             <td><%= user.type %></td>
             <td>
             <% if (user.createdAt) { %>
-              <%= new Date(user.createdAt).toLocaleDateString("ru-RU") %>
+              <p>Сегодняшняя дата: <%= today.toLocaleDateString() %></p>
             <% } else { %>
               Нет даты
             <% } %>

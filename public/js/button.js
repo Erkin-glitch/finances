@@ -1,4 +1,13 @@
-const element = document.getElementById("response__container")
-     function OnTap() {
-         element.style.display = (element.style.display === 'block') ? 'none' : 'block';
-        }
+ const checkbox = document.getElementById('transactionType');
+  const labelExpense = document.getElementById('label-expense');
+  const labelIncome = document.getElementById('label-income');
+
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      labelIncome.classList.add('active');
+      labelExpense.classList.remove('active');
+    } else {
+      labelExpense.classList.add('active');
+      labelIncome.classList.remove('active');
+    }
+  });
