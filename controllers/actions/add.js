@@ -1,7 +1,7 @@
 const {User} = require("../../models")
 
 module.exports = async (req, res) => {
-    console.log (req.body)
+    // console.log (req.body)
     try{
      let {
         title,
@@ -9,17 +9,12 @@ module.exports = async (req, res) => {
         type
      }  = req.body
 
-        if (!title || !amount || !type ) {
-            res.status(400).send()
-            return
-        }
-
         let data = await User.create({
             title,
             amount,
             type
         })
-        return res.send("succesful")
+        return res.redirect("/admin")
     } catch (error){
         console.log(error);
         return res.status(500).send(error)
