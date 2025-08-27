@@ -1,4 +1,4 @@
-const {User} = require("../../models")
+const {Transactions} = require("../../models")
 
 module.exports = async (req, res) => {
     // console.log (req.body)
@@ -9,12 +9,11 @@ module.exports = async (req, res) => {
         type
      }  = req.body
 
-        let data = await User.create({
+        let data = await Transactions.create({
             title,
             amount,
             type
         })
-        return res.redirect("/admin")
     } catch (error){
         console.log(error);
         return res.status(500).send(error)
