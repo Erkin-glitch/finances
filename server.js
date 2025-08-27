@@ -27,10 +27,12 @@ console.log(transactions);
   }
 });
 
+app.post('/redirect', (req, res) => {
+  res.redirect('/');
+});
+
 
 app.use("/", indexRouter);
-
-
 
 
 app.listen(port, () => {

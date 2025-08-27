@@ -6,6 +6,7 @@ router.get("/", controller.getIndex)
 router.get('/add', (req, res) => {
   res.render('add'); 
 });
+router.post("/redirect", controller.redirect)
 
 
 module.exports = router;

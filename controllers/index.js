@@ -1,6 +1,8 @@
-const form = require("./actions/add")
+const add = require("./actions/add")
 const getIndex = require("./actions/getIndex")
+const redirect = require ("./actions/redirect")
 module.exports = {
-    form,
-    getIndex
+    add,
+    getIndex,
+    redirect,
 }
