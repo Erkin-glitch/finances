@@ -19,5 +19,17 @@
         </div>
        <%- include('./components/users', { transactions: transactions }); -%>
     </div> 
+     <hr />
+  <% if (transactions.length > 0) { %>
+    <ul>
+      <% transactions.forEach(tx => { %>
+        <li>
+          <strong><%= tx.title %></strong> — <%= tx.amount %> (<%= tx.type %>)
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No transactions found.</p>
+  <% } %>
 </body>
 </html>
