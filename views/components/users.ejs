@@ -33,9 +33,10 @@
               <% } %>
             </td>
             <td>
-              <form action="/update" style="display:inline;">
+              <form action="/edit/<%= tx.id %>" method="get" style="display:inline;">
                 <button type="submit">Edit</button>
               </form>
+
               <form action="/remove/<%= tx.id %>" method="get" style="display: inline-block;" onsubmit="return confirm('Are you sure?');">
                 <button type="submit">Delete</button>
               </form>

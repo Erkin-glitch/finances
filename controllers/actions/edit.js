@@ -1,21 +1,18 @@
-const {Transaction} = require("../../models")
+const { Transaction } = require("../../models");
 
 module.exports = async (req, res) => {
-   console.log(req.body)
-    try{
-     let {
-        title,
-        amount,
-        type
-     }  = req.body
-        let data = await Transaction.create({
-            title,
-            amount,
-            type
-        }) 
-        return res.send("successful")
-    } catch (error){
-        console.log(error);
-        return res.status(500).send(error)
+  try {
+    const { id } = req.params;
+
+    const transaction = await Transaction.findByPk(id);
+
+    if (!transaction) {
+      return res.status(404).send("Транзакция не найдена");
     }
-}
+
+    res.render("edit", { transaction });
+  } catch (error) {
+    console.error("Ошибка при загрузке страницы редактирования:", error);
+    return res.status(500).send("Ошибка сервера");
+  }
+};

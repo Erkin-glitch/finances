@@ -30,5 +30,6 @@ router.get("/remove/:id", controller.remove);
 
 router.get("/edit/:id", controller.edit)
 
+router.post("/edit/:id", controller.update);
 
 module.exports = router;
