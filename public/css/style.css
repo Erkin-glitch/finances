@@ -108,12 +108,19 @@ td{
 }
 .transactions__headline{
     width: 70%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 .transactions__headline h1{
     font-size: 28px;
     font-weight: 400;
     color: #666666;
     text-align: start;
+}
+.transactions__headline img{
+    width: 16px;
+    height: 16px;
 }
 .details h4{
     font-size: 20px;
