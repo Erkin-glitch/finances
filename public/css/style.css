@@ -31,6 +31,7 @@ body{
     border-radius: 30px;
     width: 150px;
     height: 50px;
+    cursor: pointer;
     color: white;
 }
 .balance{
@@ -86,6 +87,7 @@ td button{
     border: none;
 }
 td button img{
+    cursor: pointer;
     width: 16px;
     height: 16px;
     color: yellow;
@@ -275,9 +277,11 @@ input:checked + .slider:before {
     border-radius: 30px;
     color: white;
     height: 30px;
+    cursor: pointer;
 }
 .cancel__btn{
     width: 19%;
+    cursor: pointer;
     background-color: white;
     color: black;
     border: 1px solid black;
