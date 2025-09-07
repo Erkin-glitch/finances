@@ -1,20 +1,20 @@
 const { Transaction } = require("../../models");
 
 module.exports = async (req, res) => {
-  console.log("Получены данные формы:", req.body); // Добавь это
+  console.log(req.body); 
 
   try {
     const { title, amount, type } = req.body;
 
     if (!title || !amount || !type) {
-      return res.status(400).send("Все поля обязательны");
+      return res.status(400).send();
     }
 
     await Transaction.create({ title, amount, type });
 
     res.redirect('/');
   } catch (error) {
-    console.error("Ошибка при создании транзакции:", error);
+    console.log(error.message);
     res.status(500).send("Ошибка сервера");
   }
 };

@@ -6,47 +6,44 @@
   <title>Document</title>
 </head>
 <body>
-   <div class="transactions">
-          <h1>Recent Transactions</h1>
-  
+  <div class="transactions">
+    <h1>Recent Transactions</h1>
 
- %>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Amount</th>
-        <th>Type</th>
-        <th>Date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% transactions.forEach(transactions => { %>
+    <table border="1">
+      <thead>
         <tr>
-          <td><%= transactions.title %></td>
-          <td><%= transactions.amount %></td>
-          <td><%= transactions.type %></td>
-          <td>
-            <% if (transactions.createdAt) { %>
-              <%= transactions.createdAt.toLocaleDateString() %>
-            <% } else { %>
-              Нет даты
-            <% } %>
-          </td>
-          <td>
-            <form action="/edit/<%= transactions.id %>" style="display:inline;">
-              <button type="submit">Edit</button>
-            </form>
-            <form action="/form" method="post" style="display: inline-block;" onsubmit="return confirm('Are you sure?');">
-              <button type="submit">Delete</button>
-            </form>
-          </td>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Actions</th>
         </tr>
-      <% }) %>
-    </tbody>
-  </table>
-<% %>
-
+      </thead>
+      <tbody>
+        <% transactions.forEach(tx => { %>
+          <tr>
+            <td><%= tx.title %></td>
+            <td><%= tx.amount %></td>
+            <td><%= tx.type %></td>
+            <td>
+              <% if (tx.createdAt) { %>
+                <%= tx.createdAt.toLocaleDateString() %>
+              <% } else { %>
+                Нет даты
+              <% } %>
+            </td>
+            <td>
+              <form action="/update" style="display:inline;">
+                <button type="submit">Edit</button>
+              </form>
+              <form action="/remove/<%= tx.id %>" method="get" style="display: inline-block;" onsubmit="return confirm('Are you sure?');">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
             amount,
             type
         }) 
-        // return res.send()
+        return res.send("successful")
     } catch (error){
         console.log(error);
         return res.status(500).send(error)

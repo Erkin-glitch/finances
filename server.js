@@ -13,24 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-app.get('/', async (req, res) => {
-  try {
-    const transactions = await Transaction.findAll();
-console.log(transactions);
-
-    res.render('index', {
-      transactions, // <-- Передаём их в шаблон
-    });
-  } catch (err) {
-    console.error('Ошибка при получении транзакций:', err);
-    res.status(500).send('Ошибка сервера');
-  }
-});
-
-app.post('/redirect', (req, res) => {
-  res.redirect('/');
-});
-
 
 app.use("/", indexRouter);
 

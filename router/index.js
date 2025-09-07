@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { Transaction } = require("../models");
+const controller = require("../controllers")
 
-// Главная страница — показываем транзакции
 router.get("/", async (req, res) => {
   try {
     const transactions = await Transaction.findAll({ order: [['createdAt', 'DESC']] });
@@ -12,12 +12,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Страница добавления транзакции (форма)
 router.get("/add", (req, res) => {
   res.render("add");
 });
 
-// Обработка формы добавления транзакции
 router.post("/add", async (req, res) => {
   try {
     const { title, amount, type } = req.body;
@@ -27,5 +25,10 @@ router.post("/add", async (req, res) => {
     res.status(500).send("Ошибка при добавлении транзакции");
   }
 });
+
+router.get("/remove/:id", controller.remove);
+
+router.get("/edit/:id", controller.edit)
+
 
 module.exports = router;
