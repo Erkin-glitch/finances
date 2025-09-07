@@ -80,6 +80,16 @@ td{
     border: none;
     border-bottom: 1px solid black;
 }
+td button{
+    background-color: white;
+    border-radius: 12px;
+    border: none;
+}
+td button img{
+    width: 16px;
+    height: 16px;
+    color: yellow;
+}
 .toggle-container {
   display: flex;
   align-items: center;
