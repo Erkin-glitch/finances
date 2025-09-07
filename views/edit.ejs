@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>update</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <title>Edit Transaction</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit Transaction</h1>
-
-  <form action="/edit/<%= transaction.id %>" method="post">
-    <label>Title:</label>
-    <input type="text" name="title" value="<%= transaction.title %>" required /><br />
-
-    <label>Amount:</label>
-    <input type="number" step="0.01" name="amount" value="<%= transaction.amount %>" required /><br />
-
-      <div class="toggle-container">
+    <div class="trans__container">
+    <div class="transactions__headline">
+       <h1>Edit  Transaction</h1>
+    </div>
+   
+    <form class="details" action="/add" method="post">
+      <div class="details__headline">
+        <h4>Transaction Details</h4>
+      </div>
+      <div class="title">
+        <h5>title</h5>
+        <textarea name="title" id="" required placeholder="Enter Transaction title"></textarea>
+      </div>
+      <div class="amount">
+        <h5>Amount</h5>
+        <textarea name="amount" id="" required placeholder="0.00"></textarea>
+      </div>
+      <div class="type">
+        <h5>Transaction Type</h5>
+       <div class="toggle-container">
         <span id="label-expense" class="label active">Expense</span>  
         <label class="switch">
           <input type="checkbox" name="isChecked" id="transactionType">
@@ -24,7 +33,17 @@
         </label>
         <span id="label-income" class="label">Income</span>
       </div>
-    <button type="submit">Save</button>
-  </form>
+      <input type="hidden" name="type" id="transactionType" value="expense" />
+     <div class="date">
+      <h5>Date</h5>
+      <textarea name="date" id="" placeholder="enter date"></textarea>
+     </div>
+     <div class="buttons">
+      <button type="submit" class="submit__btn ">Save Change</button>
+      <button type="reset" class="cancel__btn">Cancel</button>
+     </div>
+    </form>
+  </div>
+    <script src="../js/button.js"></script>
 </body>
 </html>
