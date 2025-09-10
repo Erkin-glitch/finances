@@ -5,9 +5,7 @@ module.exports = async (req, res) => {
     const { id } = req.params;
     const { title, isChecked, amount } = req.body;
 
-    // if (!title) {
-    //   return res.status(400).send("title bosh geldi");
-    // }
+    
 
     await Transaction.update(
       {
@@ -19,8 +17,8 @@ module.exports = async (req, res) => {
         where: { id }
       }
     );
-    console.log("Обновлено:");
-    return res.redirect("/");
+    console.log("Updated:");
+    return res.redirect("/balance/");
   } catch (e) {
     console.log(e);
     return res.status(500).send(e.message);

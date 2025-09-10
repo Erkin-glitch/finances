@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     const num = await Transaction.destroy({ where: { id } });
 
     if (num === 1) {
-      return res.redirect("/");
+      return res.redirect("/balance/");
     } else {
       return res.status(400).send("couldn't delete transaction");
     }

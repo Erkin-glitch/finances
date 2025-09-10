@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
     await Transaction.create({ title, amount, type });
 
-    res.redirect('/');
+    res.redirect('/balance/');
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Ошибка сервера");
