@@ -1,26 +1,34 @@
 const {Transaction} = require("../../../models")
 
 module.exports = async (req, res) => {
-  try {
+ try {
     const { id } = req.params;
-    const { title, isChecked, amount } = req.body;
+    const { title, amount, type } = req.body;
 
-    
+    // if (!title || !amount || !type) {
+    //   return res.status(400).send("Заполните все поля");
+    // }
 
-    await Transaction.update(
-      {
-        title,
-        amount,
-        type: isChecked ? "income" : "expense"
-      },
-      {
-        where: { id }
-      }
-    );
-    console.log("Updated:");
-    return res.redirect("/balance/");
-  } catch (e) {
-    console.log(e);
-    return res.status(500).send(e.message);
+    const updated = await Transaction.update(
+            {
+                title,
+                amount,
+            type: type ? 'income' : 'expense'
+            },
+            {
+                where: {
+                    id
+                }
+            }
+        );
+
+    if (updated[0] === 0) {
+      return res.status(404).send("Транзакция не найдена для обновления");
+    }
+
+    res.redirect("/balance");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Ошибка при обновлении транзакции");
   }
 };

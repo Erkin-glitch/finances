@@ -1,9 +1,8 @@
 const {Transaction} = require("../../../models")
 
 module.exports = async (req, res) => {
-  try {
+ try {
     const { id } = req.params;
-
     const transaction = await Transaction.findByPk(id);
 
     if (!transaction) {
@@ -12,7 +11,7 @@ module.exports = async (req, res) => {
 
     res.render("edit", { transaction });
   } catch (error) {
-    console.error("Couldn't load the edit page", error);
-    return res.status(500).send("Server mistake");
+    console.error(error);
+    res.status(500).send("Couldn't load the edit page");
   }
 };

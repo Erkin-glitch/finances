@@ -1,35 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const { Transaction } = require("../models");
 const controller = require("../controllers/finance");
 
-router.get("/balance", async (req, res) => {
-  try {
-    const transactions = await Transaction.findAll({
-      order: [["createdAt", "DESC"]],
-    });
-    res.render("balance", { transactions });
-  } catch (error) {
-    res.status(500).send("Ошибка сервера");
-  }
-});
+// Путь /balance/ — показывает список транзакций
+router.get("/", controller.balance);
 
-router.get("/add", (req, res) => {
-  res.render("add");
-});
+// Показать форму добавления
+router.get("/add", controller.addPage);
 
-router.post("/add", async (req, res) => {
-  try {
-    const { title, amount, type } = req.body;
-    await Transaction.create({ title, amount, type });
-    res.redirect("/balance");
-  } catch (error) {
-    res.status(500).send("Ошибка при добавлении транзакции");
-  }
-});
+// Обработка добавления
+router.post("/add", controller.add);
 
-router.get("/remove/:id", controller.remove);
+// Показать форму редактирования
 router.get("/edit/:id", controller.edit);
+
+// Обработка редактирования
 router.post("/edit/:id", controller.update);
 
-module.exports = router; // <-- ЭТО ТОЖЕ ОБЯЗАТЕЛЬНО
+// Удаление транзакции
+router.get("/remove/:id", controller.remove);
+
+module.exports = router;

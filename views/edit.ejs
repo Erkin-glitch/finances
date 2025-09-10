@@ -12,7 +12,7 @@
       <h1>Edit Transaction</h1>
     </div>
 
-    <form class="details" action="/edit/<%= transaction.id %>" method="post">
+    <form class="details" action="/balance/edit/<%= transaction.id %>" method="post">
       <div class="details__headline">
         <h4>Transaction Details</h4>
       </div>
@@ -40,7 +40,7 @@
           <label class="switch">
             <input
               type="checkbox"
-              name="isChecked"
+              name="type"
               id="transactionType"
               <%= transaction.type === 'income' ? 'checked' : '' %>
             />

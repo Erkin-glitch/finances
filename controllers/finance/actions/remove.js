@@ -1,19 +1,17 @@
 const {Transaction} = require("../../../models")
 
 module.exports = async (req, res) => {
-  try {
+ try {
     const { id } = req.params;
-    console.log("Deleted id:", id);
+    const deleted = await Transaction.destroy({ where: { id } });
 
-    const num = await Transaction.destroy({ where: { id } });
-
-    if (num === 1) {
-      return res.redirect("/balance/");
-    } else {
-      return res.status(400).send("couldn't delete transaction");
+    if (deleted === 0) {
+      return res.status(404).send("Транзакция не найдена для удаления");
     }
-  } catch (e) {
-    console.error(e);
-    return res.status(500).send(e.message);
+
+    res.redirect("/balance");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Ошибка при удалении транзакции");
   }
 };
