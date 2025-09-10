@@ -6,6 +6,7 @@ const app = express();
 const path = require("path");
 const {Transaction} = require('./models');
 const balanceRouter = require("./router/balance.js")
+const authRouter = require("./router/auth.js")
 
 app.set("views", "views");
 app.set("view engine", "ejs");
@@ -18,6 +19,7 @@ app.use(express.static("public"));
 
 app.use("/", indexRouter);
 app.use("/", balanceRouter)
+app.use("/", authRouter)
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);
