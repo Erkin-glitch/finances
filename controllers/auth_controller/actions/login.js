@@ -15,7 +15,6 @@ module.exports = async (req, res) => {
     return res.send("Неверный пароль");
   }
 
-  // 🟢 ВАЖНО: сохраняем юзера в сессию!
   req.session.user = {
     id: user.id,
     username: user.username,

@@ -5,6 +5,6 @@ module.exports= (req, res) => {
     if (err) {
       return res.status(500).send('Ошибка при выходе');
     }
-    res.redirect('/login'); 
+    res.redirect('/'); 
   });
 };
