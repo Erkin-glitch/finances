@@ -16,9 +16,10 @@
   <a href="/register">
     <button type="submit">Register</button>
   </a>
-<a href="/logout">
-  <button>Logout</button>
-</a>
+  <form action="/logout" method="get" onsubmit="return confirm('Are you sure?');"> 
+      <button type="submit">Logout</button>
+  </form>
+
 
 </body>
 </html>

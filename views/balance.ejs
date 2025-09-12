@@ -15,7 +15,7 @@
  
         <div class="balance">
             <h4>Current Balance</h4>
-            <textarea name="" id="" placeholder="your balance"></textarea>
+            <textarea disabled><%= totalBalance %>$</textarea>
         </div>
        <%- include('./components/users', { transactions: transactions }); -%>
     </div> 
