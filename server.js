@@ -17,12 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Настройка сессий
 app.use(
   session({
     secret: "mySecretKey",
     resave: false,
-    saveUninitialized: false, // ← поставь false
+    saveUninitialized: false
   })
 );
 

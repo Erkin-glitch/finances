@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="edit">
+        <a href="/balance/">
+            <img src="/icons/Vector.svg" alt="">
+        </a>
+        <h1>Edit Profile</h1>
+    </div>
+    
+    <form action="/update__user/<%= user.id %>" method="POST">
+        <div class="name">
+            <h4>Username</h4>
+            <textarea name="username" placeholder="Enter Username" required><%= user.username %></textarea>
+        </div>
+        <a href="/balance/">
+         <button type="submit">Update</button>
+        </a>
+       
+    </form>
+</body>
+</html>

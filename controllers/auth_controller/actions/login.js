@@ -7,12 +7,12 @@ module.exports = async (req, res) => {
   const user = await User.findOne({ where: { username } });
 
   if (!user) {
-    return res.send("Пользователь не найден");
+    return res.send("User not found");
   }
 
   const isCorrect = await bcrypt.compare(password, user.password);
   if (!isCorrect) {
-    return res.send("Неверный пароль");
+    return res.send("Incorrect password");
   }
 
   req.session.user = {

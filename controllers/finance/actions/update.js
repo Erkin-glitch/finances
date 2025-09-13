@@ -5,9 +5,7 @@ module.exports = async (req, res) => {
     const { id } = req.params;
     const { title, amount, type } = req.body;
 
-    // if (!title || !amount || !type) {
-    //   return res.status(400).send("Заполните все поля");
-    // }
+   
 
     const updated = await Transaction.update(
             {

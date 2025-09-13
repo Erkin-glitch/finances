@@ -6,12 +6,12 @@ module.exports = async (req, res) => {
     const deleted = await Transaction.destroy({ where: { id } });
 
     if (deleted === 0) {
-      return res.status(404).send("Транзакция не найдена для удаления");
+      return res.status(404).send("Couldn't find transaction to remove");
     }
 
     res.redirect("/balance");
   } catch (error) {
     console.error(error);
-    res.status(500).send("Ошибка при удалении транзакции");
+    res.status(500).send("Server mistake");
   }
 };

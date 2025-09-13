@@ -11,6 +11,6 @@ module.exports =  async (req, res) => {
     res.redirect("/balance");
   } catch (error) {
     console.error(error);
-    res.status(500).send("Ошибка при добавлении транзакции");
+    res.status(500).send("Server Mistake");
   }
 };

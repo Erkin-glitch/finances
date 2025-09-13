@@ -10,7 +10,13 @@
     <div class="container">
        <form class="headline" action="/balance/add" method="get">
             <h1>My Account</h1>
-            <button type="submit">Add Transaction</button>
+            <div class="user">
+                  <button type="submit">Add Transaction</button>
+                  <a href="/edit__user/<%= user.id %>">
+                    <img src="/icons/Layer 2.svg" alt="">
+                  </a>
+            </div>
+          
        </form>
  
         <div class="balance">

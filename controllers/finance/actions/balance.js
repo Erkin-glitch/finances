@@ -1,9 +1,21 @@
-const { Transaction } = require("../../../models");
+const { Transaction, User } = require("../../../models");
 
 module.exports = async (req, res) => {
   try {
+    const userId = req.session.user.id;
+
+    if (!userId) {
+      return res.status(401).send("User not authenticated");
+    }
+
+    const user = await User.findByPk(userId);
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
     const transactions = await Transaction.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [["createdAt", "DESC"]], 
     });
 
     let totalBalance = 0;
@@ -16,8 +28,9 @@ module.exports = async (req, res) => {
     });
 
     res.render("balance", {
+      user,
       transactions,
-      totalBalance, 
+      totalBalance,
     });
   } catch (error) {
     console.error(error);
