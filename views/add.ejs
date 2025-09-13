@@ -12,8 +12,8 @@
        <h1>Add  Transaction</h1>
     </div>
    
-    <form class="details" action="/balance/add" method="post">
-      <div class="details__headline">
+    <div class="details">
+     <div class="details__headline">
         <h4>Transaction Details</h4>
       </div>
       <div class="title">
@@ -36,15 +36,19 @@
       </div>
       <input type="hidden" name="type" id="transactionType" value="expense" />
     <div class="date">
-      <input type="date" name="" id="">
     </div>
 
-     <div class="buttons">
+    </div>
+    
+     <form class="buttons" action="/balance/add" method="post">
       <button type="submit" class="submit__btn ">Add Transaction</button>
-      <button type="reset" class="cancel__btn">Cancel</button>
-     </div>
-    </form>
+     </form>
+      <a href="/balance/">
+   <button class="cancel__btn">Cancel</button>
+      </a>
+    
   </div>
+   
   <script src="../js/button.js"></script>
 
 </body>

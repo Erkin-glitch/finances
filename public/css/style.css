@@ -292,7 +292,6 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 .cancel__btn{
-    width: 19%;
     cursor: pointer;
     background-color: white;
     color: black;
