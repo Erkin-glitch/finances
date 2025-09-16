@@ -4,6 +4,8 @@ module.exports = async (req, res) => {
   try {
     const userId = req.session.user.id;
 
+      const lang = req.params.lang || 'en'; 
+
     if (!userId) {
       return res.status(401).send("User not authenticated");
     }
@@ -29,6 +31,7 @@ module.exports = async (req, res) => {
 
     res.render("balance", {
       user,
+      lang,
       transactions,
       totalBalance,
     });

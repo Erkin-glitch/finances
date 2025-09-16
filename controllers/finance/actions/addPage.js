@@ -1,5 +1,6 @@
 
 
 module.exports = (req, res) => {
-    return res.render("add")
+    const lang = req.params.lang || 'en';
+    return res.render("add", { lang })
 }

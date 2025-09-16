@@ -7,5 +7,6 @@
     "user_name":"Username",
     "password":"Password",
     "cancel":"Cancel",
-    "question":"Already have an account?"
+    "question":"Already have an account?",
+    "account":"My Account"
 }

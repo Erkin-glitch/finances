@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
-       <form class="headline" action="/balance/add" method="get">
-            <h1>My Account</h1>
+       <form class="headline" action="/<%= lang %>/balance/add" method="get">
+            <h1 class="tr">account</h1>
             <div class="user">
                   <button type="submit">Add Transaction</button>
-                  <a href="/edit__user/<%= user.id %>">
+                  <a href="/<%= lang %>/edit__user/<%= user.id %>">
                     <img src="/icons/Layer 2.svg" alt="">
                   </a>
             </div>
@@ -25,5 +25,30 @@
         </div>
        <%- include('./components/users', { transactions: transactions }); -%>
     </div> 
+    <a href="/en/balance">English</a>
+    <a href="/ru/balance">Русский</a>
+
+     <script>
+        fetch(`/languages/<%=lang%>.json`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                translate(data)
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+        function translate(data) {
+            let elements = document.querySelectorAll(".tr")
+
+            for (const element of elements) {
+                if (data[element.innerText]) {
+                    element.innerText = data[element.innerText];
+                }
+            }
+        }
+    </script>
 </body>
 </html>
