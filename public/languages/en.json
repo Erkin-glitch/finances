@@ -1,0 +1,11 @@
+{
+    "welcome_page": "Welcome page",
+    "get_started": "Get started",
+    "login_page":"Login",
+    "register_page": "Register",
+    "logout_page":"logout",
+    "user_name":"Username",
+    "password":"Password",
+    "cancel":"Cancel",
+    "question":"Already have an account?"
+}

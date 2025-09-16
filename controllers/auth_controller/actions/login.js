@@ -22,5 +22,5 @@ module.exports = async (req, res) => {
 
   console.log("Login OK", req.session.user);
 
-  res.redirect("/balance");
+  res.redirect(`/${req.params.lang}/balance`);
 };

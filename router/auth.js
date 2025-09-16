@@ -1,20 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../models");
 const controller = require("../controllers/auth_controller");
 
-router.get("/login", controller.loginPage)
+// Группа маршрутов с языком
+router.get("/:lang/login", controller.loginPage);
+router.post("/:lang/login", controller.login);
 
-router.post('/login', controller.login);  
+router.get("/:lang/logout", controller.logout);
 
-router.get('/logout', controller.logout);  
+router.get("/:lang/register", controller.registerPage);
+router.post("/:lang/register", controller.register);
 
-router.post("/register", controller.register)
-
-router.get("/register", controller.registerPage )
-
-router.get("/edit__user/:id", controller.updatePage);
-
-router.post("/update__user/:id", controller.update)
+router.get("/:lang/edit__user/:id", controller.updatePage);
+router.post("/:lang/update__user/:id", controller.update);
 
 module.exports = router;

@@ -1,25 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
   <meta charset="UTF-8">
   <title>Welcome</title>
 </head>
 <body>
-  <h1>Welcome!</h1>
+  <h1 class="tr">welcome_page</h1>
 
-  <a href="/register">
-    <button type="button">Get Started</button>
+  <a href="/<%= lang %>/register">
+    <button class="tr"  type="button">get_started</button>
   </a>
-  <a href="/login">
-    <button type="button">Login</button>
+  <a href="/<%= lang %>/login">
+    <button class="tr" type="button">login_page</button>
   </a>
-  <a href="/register">
-    <button type="submit">Register</button>
+  <a href="/<%= lang %>/register">
+    <button class="tr" type="submit">register_page</button>
   </a>
   <form action="/logout" method="get" onsubmit="return confirm('Are you sure?');"> 
-      <button type="submit">Logout</button>
+      <button type="submit" class="tr">logout_page</button>
   </form>
+  <a href="/ru">Русский</a>
 
+  <a href="/en">English</a>
 
+ <script>
+        fetch(`/languages/<%=lang%>.json`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                translate(data)
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+        function translate(data) {
+            let elements = document.querySelectorAll(".tr")
+
+            for (const element of elements) {
+                if (data[element.innerText]) {
+                    element.innerText = data[element.innerText];
+                }
+            }
+        }
+    </script>
 </body>
 </html>

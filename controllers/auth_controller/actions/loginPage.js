@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-     return res.render("login")
+     const lang = req.params.lang || 'en';
+  res.render("login", { lang });
 }

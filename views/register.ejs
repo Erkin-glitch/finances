@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,33 +11,58 @@
         <div class="auth-header">
             <div class="transactions__headline">
                  <a href="/"><img src="/icons/Vector.svg" alt="Back to home"></a>
-            <h1>Register</h1>
+            <h1 class="tr">register_page</h1>
             </div>
            
         </div>
 
         <form class="auth-form" action="/register" method="POST">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Your username" required>
+                <label for="username" class="tr">user_name</label>
+                <input type="text" id="username" name="username"  placeholder="your_username" required>
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" class="tr">password</label>
                 <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
 
             <div class="form-group">
                 <a href="/balance">
-             <button type="submit" class="submit-btn">Register</button>
+             <button type="submit" class="tr">register_page</button>
                 </a>
               
             </div>
         </form>
 
         <div class="auth-footer">
-            <p>Already have an account? <a href="/login">Login</a></p>
+            <p class="tr">question</p>
+            <a class="tr" href="/login">login_page</a>
         </div>
     </div>
+    <a href="/ru/register">Русский</a>
+    <a href="/en/register">English</a>
+      <script>
+        fetch(`/languages/<%=lang%>.json`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                translate(data)
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+        function translate(data) {
+            let elements = document.querySelectorAll(".tr")
+
+            for (const element of elements) {
+                if (data[element.innerText]) {
+                    element.innerText = data[element.innerText];
+                }
+            }
+        }
+    </script>
 </body>
 </html>

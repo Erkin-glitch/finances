@@ -1,0 +1,11 @@
+{
+    "welcome_page": "Приветственная страница",
+    "get_started": "Начать",
+    "login_page":"Войти",
+    "register_page":"Зарегистрироваться",
+    "logout_page":"Выйти",
+    "user_name":"Ваше Имя",
+    "password":"Пароль",
+    "cancel": "Отмена",
+    "question": "Уже имеется аккаунт?"
+}
